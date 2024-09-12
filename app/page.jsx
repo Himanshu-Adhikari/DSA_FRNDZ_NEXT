@@ -38,7 +38,13 @@ const fetchUsers = async (databases) => {
 };
 
 const Page = () => {
-  const client = useMemo(() => new Client().setEndpoint("https://cloud.appwrite.io/v1").setProject("66dd6e530013a0051965"), []);
+  const client = useMemo(
+    () =>
+      new Client()
+        .setEndpoint("https://cloud.appwrite.io/v1")
+        .setProject("66dd6e530013a0051965"),
+    []
+  );
   const [users, setUsers] = useState([]);
   const [userRatings, setUserRatings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -47,9 +53,9 @@ const Page = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const cachedUsers = JSON.parse(localStorage.getItem('cachedUsers'));
-      const cachedRatings = JSON.parse(localStorage.getItem('cachedRatings'));
-      const cacheTimestamp = localStorage.getItem('cacheTimestamp');
+      const cachedUsers = JSON.parse(localStorage.getItem("cachedUsers"));
+      const cachedRatings = JSON.parse(localStorage.getItem("cachedRatings"));
+      const cacheTimestamp = localStorage.getItem("cacheTimestamp");
       const currentTime = new Date().getTime();
       const cacheDuration = 1000 * 60 * 60; // 1 hour
 
@@ -70,10 +76,17 @@ const Page = () => {
 
         const ratingsPromises = userData.map(async (user) => {
           const leetcodeRating = fetchRating("leetcode", user.leetcode_name);
-          const codeforcesRating = fetchRating("codeforces", user.codeforces_name);
+          const codeforcesRating = fetchRating(
+            "codeforces",
+            user.codeforces_name
+          );
           const codechefRating = fetchRating("codechef", user.codechef_name);
 
-          const [leetcode, codeforces, codechef] = await Promise.all([leetcodeRating, codeforcesRating, codechefRating]);
+          const [leetcode, codeforces, codechef] = await Promise.all([
+            leetcodeRating,
+            codeforcesRating,
+            codechefRating,
+          ]);
 
           return {
             ...user,
@@ -87,9 +100,9 @@ const Page = () => {
         setUserRatings(ratingsWithData);
         setFilteredUsers(userData);
 
-        localStorage.setItem('cachedUsers', JSON.stringify(userData));
-        localStorage.setItem('cachedRatings', JSON.stringify(ratingsWithData));
-        localStorage.setItem('cacheTimestamp', new Date().getTime().toString());
+        localStorage.setItem("cachedUsers", JSON.stringify(userData));
+        localStorage.setItem("cachedRatings", JSON.stringify(ratingsWithData));
+        localStorage.setItem("cacheTimestamp", new Date().getTime().toString());
 
         setLoading(false);
       }
@@ -149,8 +162,11 @@ const Page = () => {
         </div>
         <div>
           <h1 className="text-white text-center text-3xl underline">Members</h1>
-          <div className="container mx-auto p-6 grid md:grid-cols-3 gap-6">
-            <div className="p-2 mb-4 border border-gray-300 rounded-md text-black">
+          <div className="flex justify-center items-center ">
+            <div
+              className="p-2 mb-4  border-gray-300 rounded-md text-black text-center"
+              style={{ maxWidth: "200px" }}
+            >
               <input
                 type="text"
                 placeholder="Search by name"
@@ -159,7 +175,9 @@ const Page = () => {
                 className="w-full p-2 border rounded-md focus:border-blue-500 focus:ring focus:ring-blue-200"
               />
             </div>
+          </div>
 
+          <div className="container mx-auto p-6 grid md:grid-cols-3 gap-6">
             {loading ? (
               <SkeletonLoader count={3} />
             ) : filteredUsers.length === 0 ? (
@@ -183,7 +201,7 @@ const Page = () => {
           </div>
         </div>
       </div>
-        <ContactUs/>
+      <ContactUs />
     </>
   );
 };

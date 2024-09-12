@@ -5,7 +5,7 @@ const TopMembers = ({ users, platform }) => {
   const platformKey = `${platform}_rating`; // Dynamic key for platform rating
   const topUsers = [...users]
     .sort((a, b) => b[platformKey] - a[platformKey]) // Sort by the correct platform rating
-    .slice(0, 10); // Get top 10 users
+    .slice(0, 3); // Get top 10 users
 
   return (
     <div className="bg-zinc-800 p-6 rounded-md shadow-lg">
