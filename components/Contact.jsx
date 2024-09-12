@@ -1,28 +1,35 @@
-import React, { useRef, useState } from 'react';
-import emailjs from '@emailjs/browser';
+import React, { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export const ContactUs = () => {
   const form = useRef();
   const [isSending, setIsSending] = useState(false);
-  const [successMessage, setSuccessMessage] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const sendEmail = (e) => {
     e.preventDefault();
     setIsSending(true);
 
     emailjs
-      .sendForm('service_zre18al', 'template_ova3yvn', form.current, '9kifQ3-MHlv7gLj9c') // Use your actual public key here
+      .sendForm(
+        "service_zre18al",
+        "template_ova3yvn",
+        form.current,
+        "9kifQ3-MHlv7gLj9c"
+      ) // Use your actual public key here
       .then(
         (result) => {
-          console.log('SUCCESS!', result.text);
-          setSuccessMessage('Your registration request has been sent successfully!');
-          setErrorMessage('');
+          console.log("SUCCESS!", result.text);
+          setSuccessMessage(
+            "Your registration request has been sent successfully!"
+          );
+          setErrorMessage("");
         },
         (error) => {
-          console.log('FAILED...', error.text);
-          setSuccessMessage('');
-          setErrorMessage('Failed to send request. Please try again later.');
+          console.log("FAILED...", error.text);
+          setSuccessMessage("");
+          setErrorMessage("Failed to send request. Please try again later.");
         }
       )
       .finally(() => {
@@ -67,7 +74,7 @@ export const ContactUs = () => {
           <input
             type="url"
             name="codeforces_url" // Ensure this matches your EmailJS template
-            className="p-2 w-full border border-gray-300 rounded-md bg-zinc-700" 
+            className="p-2 w-full border border-gray-300 rounded-md bg-zinc-700"
             required
           />
         </div>
@@ -86,7 +93,7 @@ export const ContactUs = () => {
             disabled={isSending}
             className="bg-blue-500 text-white px-4 py-2 rounded-md"
           >
-            {isSending ? 'Sending...' : 'Send'}
+            {isSending ? "Sending..." : "Send"}
           </button>
         </div>
         {successMessage && <p className="text-green-500">{successMessage}</p>}
