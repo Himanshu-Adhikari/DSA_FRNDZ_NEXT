@@ -32,7 +32,7 @@ export const ContactUs = () => {
   };
 
   return (
-    <div className="p-6 bg-zinc-950 text-black rounded-lg">
+    <div className="p-6 bg-zinc-950  rounded-lg">
       <h2 className="text-xl mb-4">Register</h2>
       <form ref={form} onSubmit={sendEmail} className="space-y-4">
         <div>
@@ -40,7 +40,7 @@ export const ContactUs = () => {
           <input
             type="text"
             name="user_name" // Ensure this matches your EmailJS template
-            className="p-2 w-full border border-gray-300 rounded-md"
+            className="p-2 w-full border border-gray-300 rounded-md bg-zinc-700"
             required
           />
         </div>
@@ -49,7 +49,7 @@ export const ContactUs = () => {
           <input
             type="text"
             name="organization" // Ensure this matches your EmailJS template
-            className="p-2 w-full border border-gray-300 rounded-md"
+            className="p-2 w-full border border-gray-300 rounded-md bg-zinc-700"
             required
           />
         </div>
@@ -58,7 +58,7 @@ export const ContactUs = () => {
           <input
             type="url"
             name="leetcode_url" // Ensure this matches your EmailJS template
-            className="p-2 w-full border border-gray-300 rounded-md"
+            className="p-2 w-full border border-gray-300 rounded-md bg-zinc-700"
             required
           />
         </div>
@@ -67,7 +67,7 @@ export const ContactUs = () => {
           <input
             type="url"
             name="codeforces_url" // Ensure this matches your EmailJS template
-            className="p-2 w-full border border-gray-300 rounded-md"
+            className="p-2 w-full border border-gray-300 rounded-md bg-zinc-700" 
             required
           />
         </div>
@@ -76,7 +76,7 @@ export const ContactUs = () => {
           <input
             type="url"
             name="codechef_url" // Ensure this matches your EmailJS template
-            className="p-2 w-full border border-gray-300 rounded-md"
+            className="p-2 w-full border border-gray-300 rounded-md bg-zinc-700"
             required
           />
         </div>
