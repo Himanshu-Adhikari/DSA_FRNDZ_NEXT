@@ -10,7 +10,7 @@ const Navbar = () => {
         <div className="text-lg font-semibold">
           <a
             href="/"
-           className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-orange-400 text-transparent bg-clip-text transition-colors duration-300 ease-in-out hover:bg-gradient-to-l hover:from-yellow-500 hover:via-yellow-400 hover:to-orange-500"
+           className="underline bg-gradient-to-r from-yellow-400 via-yellow-300 to-orange-400 text-transparent bg-clip-text transition-colors duration-300 ease-in-out hover:bg-gradient-to-l hover:from-yellow-500 hover:via-yellow-400 hover:to-orange-500"
           >
             DSA_FRNDZ
           </a>
