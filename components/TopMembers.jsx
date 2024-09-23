@@ -18,11 +18,11 @@ const TopMembers = ({ users, platform }) => {
               key={user.$id}
               className="flex justify-between bg-zinc-900 p-3 rounded-md text-white"
             >
-              <span>
-                {index + 1}. {user.Name} ({user.Organisation})
+              <span className="font-bold">
+                {index + 1}. {user.Name}<br/> ({user.Organisation})
               </span>
-              <span>
-                {platform.charAt(0).toUpperCase() + platform.slice(1)} Rating:{" "}
+              <span className="font-bold">
+                
                 {user[platformKey]}
               </span>
             </li>

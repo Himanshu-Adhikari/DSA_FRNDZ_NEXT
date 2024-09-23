@@ -132,7 +132,7 @@ const Page = () => {
     <>
       <Navbar />
       <div className="bg-zinc-950 min-h-screen flex flex-col justify-center">
-        <div className="container mx-auto p-6 grid md:grid-cols-3 gap-6">
+        <div className="container mx-auto p-6 grid md:grid-cols-1 lg:grid-cols-3  gap-6">
           <div className="container mx-auto p-6">
             <h2 className="text-white text-xl mb-4">Top Leetcode Members</h2>
             {loading ? (
@@ -177,7 +177,7 @@ const Page = () => {
             </div>
           </div>
 
-          <div className="container mx-auto p-6 grid md:grid-cols-3 gap-6">
+          <div className="container mx-auto p-6 grid lg:grid-cols-3 md:grid-cols-2 gap-6">
             {loading ? (
               <SkeletonLoader count={3} />
             ) : filteredUsers.length === 0 ? (
